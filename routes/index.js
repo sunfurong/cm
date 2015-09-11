@@ -9,8 +9,13 @@ module.exports = function(app) {
 			title: 'Express'
 		});
 	});
+    app.get('/log', function(req, res) {
+        res.render('user/signin', {
+
+        });
+    });
 	app.get('/reg', function(req, res) {
-		res.render('reg', {
+		res.render('user/signup', {
 			title: '注册',
 			// user: req.session.user,
 			 success: req.flash('success').toString(),
