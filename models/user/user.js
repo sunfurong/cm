@@ -44,7 +44,7 @@ User.get = function(name, callback) {
             return callback(err);//错误，返回 err 信息
         }else{
             if(rows.length!=0)
-                callback(null, rows); //成功！返回查询的用户信息
+                callback(null, rows[0]); //成功！返回查询的用户信息
             else
                 callback(null,null);
 
