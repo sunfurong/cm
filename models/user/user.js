@@ -3,7 +3,7 @@ var mysqlcon = require('../db/mysqlconnect');
 function User(user) {
     this.name = user.name;
     this.password = user.password;
-    this.email = user.email;
+    this.activename = user.activename;
 };
 
 module.exports = User;
@@ -14,11 +14,11 @@ User.prototype.save = function(callback) {
     var user = {
         username: this.name,
         password: this.password,
-        email: this.email
+        activename: this.activename
     };
     //打开数据库
 
-    var sql_string="insert into cm_user(username,password,email) value(" +"'"+user.username+"','"+user.password+"','"+user.email+"'"+")";
+    var sql_string="insert into cm_user(username,password,activename) value(" +"'"+user.username+"','"+user.password+"','"+user.activename+"'"+")";
     console.log(sql_string);
     mysqlcon.handleError();
     mysqlcon.query(sql_string,function (err){

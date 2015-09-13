@@ -59,7 +59,7 @@ module.exports = function (app) {
         var newUser = new User({
             name: name,
             password: password,
-            email: req.body.email
+            activename: req.body.activename
         });
         User.get(newUser.name, function (err, user) {
             if (err) {
@@ -85,5 +85,13 @@ module.exports = function (app) {
             });
         });
     });
+    app.get('/manage',function(req,res){
+        //打开后台管理界面，也就是朱昀使用的
+        res.render('manage/manage', {
 
+        });
+    });
+    app.get('/activity',function(req,res){
+        //普通用户打开对应活动的界面
+    })
 };
