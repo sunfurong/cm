@@ -1,0 +1,36 @@
+@font-face {
+    font-family:IconFont;
+    src:url('/modern-pictograms/modernpics.otf');
+
+}
+@font-face {
+    font-family:hapwebFont ;
+    src:url('/alex-brush/14.otf');
+
+}
+*{margin:0;padding:0;}
+
+.h1_title{
+    font-family:hapwebFont ;
+    font-size:2em;
+    align-content: center;
+    text-align:center;
+    color: #FFF;
+}
+.p_title{
+    font-family:IconFont ;
+    font-size:2em;
+    align-content: center;
+    text-align:center;
+    color: #FFF;
+}
+.h0_title{
+    font-family:hapwebFont ;
+    font-size:3em;
+    align-content: center;
+    text-align:center;
+    color: #FFF;
+}
+.p_div {
+    margin-bottom: 10px;
+}

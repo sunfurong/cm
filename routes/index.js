@@ -34,7 +34,9 @@ module.exports = function (app) {
 
             req.session.user = user;
             req.flash('success', '登陆成功!');
-
+            if(user.username == 'zhuyun'){
+                return res.redirect('/manage');
+            }
             res.redirect('/');
         });
     })
