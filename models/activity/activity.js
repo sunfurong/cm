@@ -60,13 +60,14 @@ Activity.get = function(name, callback) {
 
 Activity.getAll=function(callback){
     var sql_string="select * from cm_activity";
+    console.log(sql_string);
     mysqlcon.handleError();
     mysqlcon.query(sql_string,function(err, rows){
         if (err) {
             return callback(err);//错误，返回 err 信息
         }else{
             if(rows.length!=0)
-                callback(null, rows[0]); //成功！返回查询的用户信息
+                callback(null, rows); //成功！返回查询的用户信息
             else
                 callback(null,null);
 

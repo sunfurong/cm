@@ -1,4 +1,4 @@
-var User = require('../models/user/user.js');
+var User = require('../models/user/user');
 var crypto = require('crypto');
 
 function reg(req,res){

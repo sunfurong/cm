@@ -3,13 +3,12 @@ var User = require('../models/user/user');
 var crypto = require('crypto');
 var reg=require('../business/reg');
 var login=require('../business/login');
+var home= require('../business/home');
 /* GET home page. */
 //var mysqlcon = require('../models/db/mysqlconnect');
 module.exports = function (app) {
     app.get('/', function (req, res) {
-        res.render('index', {
-            //将HTML代码返回
-        });
+        home.getallActivity(req,res);
     });
 
     app.get('/log', function (req, res) {
