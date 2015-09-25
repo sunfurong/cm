@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>ManageSystem</title>
+    <link  href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--对IE8以下IE浏览器的样式的支持-->
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <style>
+        div{
+            border:1px solid black;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id=win_login style="display:none; POSITION:absolute; z-index:999;left:50%; top:50%; width:600px; height:400px; margin-left:-300px; margin-top:-200px; border:1px solid #888; background-color:#edf; text-align:center">
+    登录<br>
+    <a href="javascript:closeLogin();">关闭登录框</a>
+</div>
+<div id=win_background style="display:none; POSITION:absolute; z-index:998;left:0%; top:0%; width:100%; height:100%; border:1px solid #888;  background: rgba(255, 255, 255, 0.9);text-align:center">
+</div>
+<script>
+    function openLogin(){
+        document.getElementById("win_login").style.display="";
+        document.getElementById("win_background").style.display="";
+        document.getElementById("win_background").addEventListener('click',closeLogin);
+    }
+    function closeLogin(){
+        document.getElementById("win_login").style.display="none";
+        document.getElementById("win_background").style.display="none";
+        document.getElementById("win_background").removeEventListener('click',closeLogin);
+    }
+</script>

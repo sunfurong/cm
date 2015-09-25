@@ -17,9 +17,9 @@ function getallActivity(req,res){
                     html=html+" <div class='row' style='height: 50px;width: 100%'></div>"
                         +"<div class='row' style='height: 300px;width: 100%'>"
                         +"<div class='col-md-1 col-xs-1' style='background-color: white;height: 300px'></div>"
-                        +"<div class='col-md-4 col-xs-4' style='background-color: aliceblue;height: 300px'><p>"+activity[i*2].name+"</p></div>"
+                        +"<a href='/activity/"+ activity[i*2].name +"'><div class='col-md-4 col-xs-4' style='background-color: aliceblue;height: 300px'><p>"+activity[i*2].name+"</p></div></a>"
                         +"<div class='col-md-2 col-xs-1' style='background-color: white;height: 300px'></div>"
-                        +"<div class='col-md-4 col-xs-4' style='background-color: aliceblue;height: 300px;'><p>"+activity[i*2+1].name+"</p></div>"
+                        +"<a href='/activity/"+ activity[i*2+1].name +"'><div class='col-md-4 col-xs-4' style='background-color: aliceblue;height: 300px;'><p>"+activity[i*2+1].name+"</p></div></a>"
                         +"<div class='col-md-1 col-xs-1' style='background-color: white;height: 300px;'></div>"
                         +"</div>";
                 }
@@ -27,7 +27,7 @@ function getallActivity(req,res){
                     html=html+" <div class='row' style='height: 50px;width: 100%'></div>"
                         +"<div class='row' style='height: 300px;width: 100%'>"
                         +"<div class='col-md-1 col-xs-1' style='background-color: white;height: 300px'></div>"
-                        +"<div class='col-md-4 col-xs-4' style='background-color: aliceblue;height: 300px'><p>"+activity[activity.length-1].name+"</p></div>"
+                        +"<a href='/activity/"+ activity[activity.length-1].name +"'><div class='col-md-4 col-xs-4' style='background-color: aliceblue;height: 300px'><p>"+activity[activity.length-1].name+"</p></div></a>"
                         +"<div class='col-md-2 col-xs-1' style='background-color: white;height: 300px'></div>"
                         +"<div class='col-md-4 col-xs-4' style='background-color: aliceblue;height: 300px;'><p>敬请期待</p></div>"
                         +"<div class='col-md-1 col-xs-1' style='background-color: white;height: 300px;'></div>"

@@ -7,9 +7,6 @@ var home= require('../business/home');
 /* GET home page. */
 //var mysqlcon = require('../models/db/mysqlconnect');
 module.exports = function (app) {
-    app.get('/', function (req, res) {
-        home.getallActivity(req,res);
-    });
 
     app.get('/log', function (req, res) {
         res.render('user/signin', {
@@ -47,6 +44,15 @@ module.exports = function (app) {
         //普通用户打开对应活动的界面
     })
 
+    //系统首页
+    app.get('/', function (req, res) {
+        home.getallActivity(req,res);
+    });
+    //活动首页
+    app.get('/activity/*',function(req,res){
+        var activity_name=req.url.split("/")[2];
+        res.render('activity/index',{})
+    });
     //后台管理
     app.get('/mgactivity',function(req,res){
         res.render('manage/mgactivity',{
@@ -68,4 +74,16 @@ module.exports = function (app) {
 
         })
     })
+    //用户页面
+    app.get('/bsm',function(req,res){
+        res.render('bsm/index',{})
+    });
+
+    app.get('/director',function(req,res){
+        res.render('director/index',{})
+    });
+
+    app.get('/ssm',function(req,res){
+        res.render('ssm/index',{})
+    });
 };
