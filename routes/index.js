@@ -46,4 +46,26 @@ module.exports = function (app) {
     app.get('/activity',function(req,res){
         //普通用户打开对应活动的界面
     })
+
+    //后台管理
+    app.get('/mgactivity',function(req,res){
+        res.render('manage/mgactivity',{
+
+        })
+    });
+    app.get('/mguser',function(req,res){
+        res.render('manage/mguser',{
+
+        })
+    });
+    app.get('/mgfile',function(req,res){
+        res.render('manage/mgfile',{
+
+        })
+    });
+    app.get('/mgstatistics',function(req,res){
+        res.render('manage/mgstatistics',{
+
+        })
+    })
 };

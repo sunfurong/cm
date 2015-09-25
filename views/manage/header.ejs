@@ -15,6 +15,64 @@
     <script src="/javascripts/jquery.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
     <link href="/stylesheets/manage/manage.css" rel="stylesheet">
+    <style type="text/css">
+        html, body, div { margin: 0; }
+        #divLeft { background: white; width: 200px; float: left ;position: fixed;height: 400px}
+        #divRight { background: green; margin-left: 200px}
+
+        a:link {text-decoration:none;}    /* 未被访问的链接 */
+        a:visited {text-decoration:none;} /* 已被访问的链接 */
+        a:hover {text-decoration:none;}   /* 鼠标指针移动到链接上 */
+        a:active {text-decoration:none;}  /* 正在被点击的链接 */
+    </style>
 </head>
 
 <body>
+<div id="divLeft">
+    <div style="height: 80px;width: 100%;border: 1px solid black">
+        <p>后台管理</p>
+    </div>
+    <ul style="border: 1px solid black">
+        <li class="" style="border: 1px solid black;height: 50px;width: 100%">
+            <!--<a class="shortcuts-activity" data-placement="right" href="/dashboard/activity" title="Activity">-->
+            <a href="/mgactivity/#">
+            <i></i>
+                            <span>
+                                活动管理
+                            </span>
+            </a>
+        </li>
+        <li class="" style="border: 1px solid black;height: 50px;width: 100%">
+            <!--<a class="shortcuts-activity" data-placement="right" href="/dashboard/activity" title="Activity">-->
+            <a href="/mguser/#">
+            <i></i>
+                            <span>
+                                用户管理
+                            </span>
+            </a>
+        </li>
+        <li class="" style="border: 1px solid black;height: 50px;width: 100%">
+            <!--<a class="shortcuts-activity" data-placement="right" href="/dashboard/activity" title="Activity">-->
+            <a href="/mgfile/#">
+            <i></i>
+                            <span>
+                                文件管理
+                            </span>
+            </a>
+        </li>
+        <li class="" style="border: 1px solid black;height: 50px;width: 100%">
+            <!--<a class="shortcuts-activity" data-placement="right" href="/dashboard/activity" title="Activity">-->
+            <a href="/mgstatistics/#">
+            <i></i>
+                            <span>
+                                后台统计
+                            </span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="divRight">
+    <div  style="height: 50px;background-color: black;border: 1px solid black;position: fixed;width:100%"></div>
+    <div style="height: 1000px;background-color: #00B7FF">
+        <div style="height: 50px;"></div>
+        ddsd<br>dsd<br>dsds<br>dsd<br>
