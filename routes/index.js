@@ -86,4 +86,5 @@ module.exports = function (app) {
     app.get('/ssm',function(req,res){
         res.render('ssm/index',{})
     });
+    app.get('/dsd',function(req,res){})
 };
