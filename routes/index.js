@@ -42,7 +42,7 @@ module.exports = function (app) {
 
     app.get('/activity',function(req,res){
         //普通用户打开对应活动的界面
-    })
+    });
 
     //系统首页
     app.get('/', function (req, res) {
@@ -59,23 +59,28 @@ module.exports = function (app) {
 
         })
     });
+
     app.get('/mguser',function(req,res){
         res.render('manage/mguser',{
 
         })
     });
+
     app.get('/mgfile',function(req,res){
         res.render('manage/mgfile',{
 
         })
     });
+
     app.get('/mgstatistics',function(req,res){
         res.render('manage/mgstatistics',{
 
         })
-    })
+    });
+
     //用户页面
     app.get('/bsm',function(req,res){
+
         res.render('bsm/index',{})
     });
 
