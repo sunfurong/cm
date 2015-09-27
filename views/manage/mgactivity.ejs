@@ -1,3 +1,40 @@
 <%- include header %>
-ac
+<div id=win_login style="display:none; POSITION:absolute; z-index:999;left:50%; top:50%; width:600px; height:400px; margin-left:-300px; margin-top:-200px; border:1px solid #888; background-color:#edf; text-align:center">
+    <form method="post" action="/activity_reg">
+       活动名称：<input type="text" name="name"/><br />
+        活动负责人：<input type="text" name="director"/><br />
+        活动地址：<input type="text" name="address"/><br />
+        活动开始时间：<input type="Date" name="start_time"/><br />
+
+        活动结束时间：<input type="Date" name="end_time"/><br />
+        备注：<input type="text" name="remark"/><br />
+      <input type="submit" value="创建"/>
+
+    </form>
+</div>
+<div id=win_background style="display:none; POSITION:absolute; z-index:998;left:0%; top:0%; width:100%; height:100%; border:1px solid #888;  background: rgba(255, 255, 255, 0.9);text-align:center">
+</div>
+<script>
+    function openLogin(){
+        document.getElementById("win_login").style.display="";
+        document.getElementById("win_background").style.display="";
+        document.getElementById("win_background").addEventListener('click',closeLogin);
+    }
+    function closeLogin(){
+        document.getElementById("win_login").style.display="none";
+        document.getElementById("win_background").style.display="none";
+        document.getElementById("win_background").removeEventListener('click',closeLogin);
+    }
+</script>
+<div class="container" style="margin-top:20px">
+    <div class="row" style="height: 70px"><p>活动管理</p></div>
+    <div class="row" style="height: 90px">
+        <div style="margin-left: 25px;margin-right: 25px;margin-top: 15px;height: 60px;">
+            <div style="float:right;width:100px;margin-right: 25px;margin-top: 10px;height: 40px;background-color: red">
+                <a href="javascript:openLogin();"><span>+添加活动</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height: 1000px"></div>
+</div>
 <%- include footer %>
