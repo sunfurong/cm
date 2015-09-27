@@ -4,6 +4,7 @@ var crypto = require('crypto');
 var reg=require('../business/reg');
 var login=require('../business/login');
 var home= require('../business/home');
+var activity=require('../business/activity');
 /* GET home page. */
 //var mysqlcon = require('../models/db/mysqlconnect');
 module.exports = function (app) {
@@ -91,5 +92,10 @@ module.exports = function (app) {
     app.get('/ssm',function(req,res){
         res.render('ssm/index',{})
     });
-    app.get('/dsd',function(req,res){})
+    //活动注册
+    app.post('/activity_reg',function(req,res){
+        //console.log(req.body);
+        activity.reg(req,res);
+
+    })
 };
