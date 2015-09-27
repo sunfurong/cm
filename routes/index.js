@@ -97,5 +97,5 @@ module.exports = function (app) {
         //console.log(req.body);
         activity.reg(req,res);
 
-    });
+    });;
 };
