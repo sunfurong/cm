@@ -5,6 +5,7 @@ var reg=require('../business/reg');
 var login=require('../business/login');
 var home= require('../business/home');
 var activity=require('../business/activity');
+var director = require('../business/director');
 /* GET home page. */
 //var mysqlcon = require('../models/db/mysqlconnect');
 module.exports = function (app) {
@@ -52,6 +53,7 @@ module.exports = function (app) {
     //活动首页
     app.get('/activity/*',function(req,res){
         var activity_name=req.url.split("/")[2];
+        req.session.activity=activity_name;
         res.render('activity/index',{})
     });
     //后台管理
@@ -94,8 +96,12 @@ module.exports = function (app) {
     });
     //活动注册
     app.post('/activity_reg',function(req,res){
-        //console.log(req.body);
+        console.log(req.body);
         activity.reg(req,res);
 
     });
+    app.post('/director_reg',function(req,res){
+        console.log(req.body);
+        director.reg(req,res);
+    })
 };

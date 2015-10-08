@@ -16,8 +16,10 @@
     <script src="/javascripts/bootstrap.min.js"></script>
     <link href="/stylesheets/manage/manage.css" rel="stylesheet">
     <style type="text/css">
-        html, body, div { margin: 0; }
-        #divLeft { background: white; width: 200px; float: left ;position: fixed;height: 400px}
+        html, body, div { margin: 0;
+
+        }
+        #divLeft { background: #2b333d; width: 200px; float: left ;position: fixed;height:100%}
         #divRight { background: green; margin-left: 200px}
 
         a:link {text-decoration:none;}    /* 未被访问的链接 */
@@ -25,9 +27,70 @@
         a:hover {text-decoration:none;}   /* 鼠标指针移动到链接上 */
         a:active {text-decoration:none;}  /* 正在被点击的链接 */
         div{
-            border:1px solid black;
+            /*border:1px solid black;*/
+            text-align:center
         }
+        /*#win_background{*/
+            /*POSITION:absolute;*/
+            /*z-index:998;*/
+            /*left:0%;*/
+            /*top:0%;*/
+            /*width:100%;*/
+            /*height:100%;*/
+            /*border:1px solid #888;*/
+            /*background: rgba(255, 255, 255, 0.9);*/
+            /*text-align:center*/
+        /*}*/
+        #row_title{
+            height: 70px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border:1px solid black;
+            background-color: white;
+
+        }
+        #row_fn{
+            height: 90px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border:1px solid black
+        }
+        #row_fn1{
+           margin-left: 25px;
+            margin-right: 25px;
+            margin-top: 15px;
+            height: 60px;
+            background-color: white;
+            border:1px solid black
+        }
+        #row_con{
+            height: 1000px;
+            margin-left: 20px;
+            margin-right: 20px;
+            background-color: white;
+            border:1px solid black
+        }
+        #row_fn1_ac{
+           float:right;
+            width:100px;
+            margin-right: 25px;
+            margin-top: 10px;
+            height: 40px;
+            background-color: red;
+            border:1px solid black
+        }
+        .p_title{
+            color:black;
+            font-size: 36px;
+        }
+        /*#win_login{*/
+           /*POSITION:absolute; z-index:998;left:0%; top:0%; width:100%; height:100%; border:1px solid #888;  background: rgba(255, 255, 255, 0.9);text-align:center*/
+        /*}*/
     </style>
+    <script type="text/javascript">
+
+
+    </script>
 </head>
 
 <body>
@@ -75,7 +138,7 @@
     </ul>
 </div>
 <div id="divRight">
-    <div  style="height: 50px;background-color: black;border: 1px solid black;position: fixed;width:100%"></div>
-    <div style="background-color: white">
-        <div style="height: 50px;"></div>
+    <div  style="height: 80px;background-color: white;border: 1px solid black;position: fixed;width:100%"></div>
+    <div style="background-color: #f8fafc">
+        <div style="height: 80px;"></div>
         
