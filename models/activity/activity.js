@@ -86,4 +86,31 @@ Activity.getAll=function(callback){
         }
     });
     mysqlcon.end();
+};
+Activity.createGoodsTable=function(name,callback){
+    var sql_string="CREATE TABLE "+name+"("+
+    "id INT(11),"+
+     "name VARCHAR(255),"+
+        "ssmname VARCHAR(255),"+
+        "ssmphone BIGINT(20),"+
+        "ssmpassword VARCHAR(255),"+
+        "goodsaddress VARCHAR(255),"+
+        "bsmname VARCHAR(255),"+
+        "bsmpassword VARCHAR(255),"+
+        "bsmphone BIGINT(20),"+
+        "task INT(20)"+
+    ");"
+    console.log(sql_string);
+    mysqlcon.handleError();
+    mysqlcon.query(sql_string,function(err, rows){
+        if (err) {
+            return callback(err);//错误，返回 err 信息
+        }else{
+            if(rows.length!=0)
+                callback(null, rows); //成功！返回查询的用户信息
+            else
+                callback(null,null);
+
+        }
+    });
 }
