@@ -6,6 +6,11 @@ function Activity(activity) {
     this.start_time  = activity.start_time;
     this.end_time = activity.end_time;
     this.remark = activity.remark;
+    this.title=activity.title;
+    this.tel=activity.tel;
+    this.manage_name=activity.manage_name;
+    this.manage_pawd=activity.manage_pawd;
+    this.show = activity.show;
 };
 
 module.exports = Activity;
@@ -20,10 +25,16 @@ Activity.prototype.save = function(callback) {
         start_time:this.start_time,
         end_time:this.end_time,
         remark:this.remark,
+        title:this.title,
+        tel:this.tel,
+        manage_name:this.manage_name,
+        manage_pawd:this.manage_pawd,
+        show:this.show,
     }
     //打开数据库
-
-    var sql_string="insert into cm_activity(name,director,address,start_time,end_time,remark) value(" +"'"+activity.name+"','"+activity.director+"','"+activity.address+"','"+activity.start_time+"','"+activity.end_time+"','"+activity.remark+"'"+")";
+    var sql_string="insert into cm_activity(name,director,address,start_time,end_time,remark,activity_title,tel,manage_name,manage_pawd,manage_show) value("
+        +"'"+activity.name+"','"+activity.director+"','"+activity.address+"','"+activity.start_time+"','"+activity.end_time+"','"+activity.remark+"','"+
+        activity.title+"','"+activity.tel+"','"+activity.manage_name+"','"+activity.manage_pawd+"','"+activity.show+"')";
     console.log(sql_string);
     mysqlcon.handleError();
     mysqlcon.query(sql_string,function (err){
@@ -42,7 +53,8 @@ Activity.prototype.save = function(callback) {
 //读取某个活动信息
 Activity.get = function(name, callback) {
     //打开数据库
-    var sql_string="select * from cm_activity where name ="+name;
+    var sql_string="select * from cm_activity where name ='"+name+"'";
+    console.log(sql_string);
     mysqlcon.handleError();
     mysqlcon.query(sql_string,function(err, rows){
         if (err) {

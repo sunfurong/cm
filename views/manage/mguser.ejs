@@ -3,36 +3,78 @@
     <div style="height: 40px;width: 100%;background-color: white;border: 1px solid black">
         <p id="win_title"><p>
     </div>
-    <div style="margin-top:20px;">
-        <form method="post" action="/activity_reg">
-            <table valign="center" style="text-align:right;margin:auto;">
-                <tr><td>活动名称:</td><td><input type="text" name="name"/><td></tr>
-                <tr><td>活动主题:</td><td><input type="text" name="title"/><td></tr>
-                <tr><td>活动负责人:</td><td><input type="text" name="director"/><td></tr>
-                <tr><td>联系电话:</td><td><input typ="tel" name="tel"/><td></tr>
-                <tr><td>活动地址:</td><td><input type="text" name="address"/><td></tr>
-                <tr><td>活动开始时间:</td><td><input type="Date" name="start_time"/><td></tr>
-                <tr><td>活动结束时间:</td><td><input type="Date" name="end_time"/><td></tr>
-                <tr><td>设定管理员:</td><td><input type="text" name="manage_name"/><td></tr>
-                <tr><td>设定密码:</td><td><input type="password" nam="password"/><td></tr>
-                <tr><td>显示排名:</td><td><label><input name="Fruit" checked="checked" type="radio" value="0" />显示 </label> <label><input name="Fruit" type="radio" value="1" />不显示</label> <td></tr>
-                <tr><td>备注:</td><td><input type="text" name="remark"/><br />
-            </table>
+    <div id="div_form" style="margin-top:20px;">
 
-            <input type="submit" value="创建"/>
-
-        </form>
     </div>
 
 </div>
 <div id=win_background style="position: fixed;display:none; z-index:998;left:0%; top:0%; width:100%; height:100%; border:1px solid #888;  background: rgba(255, 255, 255, 0.9);text-align:center">
 </div>
 <script>
-    function openLogin(div_name){
-        document.getElementById("win_title").innerText=div_name;
-        document.getElementById("win_login").style.display="";
-        document.getElementById("win_background").style.display="";
-        document.getElementById("win_background").addEventListener('click',closeLogin);
+    var div_name="bsm";
+    function getxml(val){
+        div_name=val;
+        var  k1 =document.getElementById("col_title11");
+        var  k2 =document.getElementById("col_title12");
+        var  k3 =document.getElementById("col_title13");
+        var k4 =document.getElementById("col_title14");
+//            var xmlHttp=new XMLHttpRequest();
+//            xmlHttp.open("GET","/ajax/"+val,true);
+//            xmlHttp.onreadystatechange = function(){
+//                if(xmlHttp.readyState==4){
+//                    if(xmlHttp.status==200){
+//
+//                        var data=eval("("+xmlHttp.responseText+")");
+//
+//                    }
+//                }
+//            }
+//            //发送请求
+//            xmlHttp.send(null);
+        if(val=="bsm"){
+            k1.style.borderBottomColor='lawngreen';
+            k2.style.borderBottomColor='white';
+            k3.style.borderBottomColor='white';
+            k4.style.borderBottomColor='white';
+        }else if(val=="director"){
+            k1.style.borderBottomColor='white';
+            k2.style.borderBottomColor='lawngreen';
+            k3.style.borderBottomColor='white';
+            k4.style.borderBottomColor='white';
+        }else if(val=="ssm"){
+            k1.style.borderBottomColor='white';
+            k2.style.borderBottomColor='white';
+            k3.style.borderBottomColor='lawngreen';
+            k4.style.borderBottomColor='white';
+        }else if(val=="cus"){
+            k1.style.borderBottomColor='white';
+            k2.style.borderBottomColor='white';
+            k3.style.borderBottomColor='white';
+            k4.style.borderBottomColor='lawngreen';
+        }
+
+    }
+    function openLogin(){
+        document.getElementById("win_title").innerText = div_name;
+        document.getElementById("div_form").innerHTML = " <form method='post' action='/activity_reg'>" +
+                "<table valign='center' style='text-align:right;margin:auto;'>" +
+                "<tr><td>活动名称:</td><td><input type='text' name='name'/><td></tr>" +
+                "<tr><td>活动主题:</td><td><input type='text' name='title'/><td></tr>" +
+                "<tr><td>活动负责人:</td><td><input type='text' name='director'/><td></tr>" +
+                "<tr><td>联系电话:</td><td><input typ='tel' name='tel'/><td></tr>" +
+                "<tr><td>活动地址:</td><td><input type='text' name='address'/><td></tr>" +
+                "<tr><td>活动开始时间:</td><td><input type='Date' name='start_time'/><td></tr>" +
+                "<tr><td>活动结束时间:</td><td><input type='Date' name='end_time'/><td></tr>" +
+                "<tr><td>设定管理员:</td><td><input type='text' name='manage_name'/><td></tr>" +
+                "<tr><td>设定密码:</td><td><input type='password' nam='password'/><td></tr>" +
+                "<tr><td>显示排名:</td><td><label><input name='Fruit' checked='checked' type='radio' value='0' />显示 </label> <label><input name='Fruit' type='radio' value='1' />不显示</label> <td></tr>" +
+                "<tr><td>备注:</td><td><input type='text' name='remark'/><br />" +
+                "</table>" +
+                "<input type='submit' value='创建'/>" +
+                "</form>";
+        document.getElementById("win_login").style.display = "";
+        document.getElementById("win_background").style.display = "";
+        document.getElementById("win_background").addEventListener('click', closeLogin);
     }
     function closeLogin(){
         document.getElementById("win_login").style.display="none";
@@ -41,20 +83,20 @@
     }
 </script>
 <div style="margin-top:20px;">
-    <div class="row" id="row_title" ><p>用户管理</p></div>
+    <div class="row" id="row_title" >
+        <div id="col_title">
+            <div class="col-md-2"></div>
+            <div class="col-md-2" class="col_title1" id="col_title11" style="border-bottom: 3px solid black;border-bottom-color: lawngreen;" onclick="getxml('bsm')"><p class="p_title">商户</p></div>
+            <div class="col-md-2" class="col_title1" id="col_title12" style="border-bottom: 3px solid black;border-bottom-color: white;" onclick="getxml('director')"><p class="p_title">负责人</p></div>
+            <div class="col-md-2" class="col_title1" id="col_title13" style="border-bottom: 3px solid black;border-bottom-color: white;" onclick="getxml('ssm')"><p class="p_title">业务员</p></div>
+            <div class="col-md-2" class="col_title1" id="col_title14" style="border-bottom: 3px solid black;border-bottom-color: white;" onclick="getxml('cus')"><p class="p_title">客户</p></div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
     <div class="row" id="row_fn" >
         <div id="row_fn1" >
             <div id="row_fn1_ac">
-                <a href="javascript:openLogin('注册商户');"><span>+添加商户</span></a>
-            </div>
-            <div id="row_fn1_ac">
-                <a href="javascript:openLogin('注册客户');"><span>+添加客户</span></a>
-            </div>
-            <div id="row_fn1_ac">
-                <a href="javascript:openLogin('注册负责人');"><span>+添加负责人</span></a>
-            </div>
-            <div id="row_fn1_ac">
-                <a href="javascript:openLogin('注册业务员');"><span>+添加业务员</span></a>
+                <a href="javascript:openLogin();"><span>+添加用户</span></a>
             </div>
         </div>
 
