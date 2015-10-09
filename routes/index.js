@@ -6,6 +6,7 @@ var login=require('../business/login');
 var home= require('../business/home');
 var activity=require('../business/activity');
 var director = require('../business/director');
+var ajaxManage = require('../business/ajaxManage');
 /* GET home page. */
 //var mysqlcon = require('../models/db/mysqlconnect');
 module.exports = function (app) {
@@ -103,5 +104,8 @@ module.exports = function (app) {
     app.post('/director_reg',function(req,res){
         console.log(req.body);
         director.reg(req,res);
+    })
+    app.get('/ajax/*',function(req,res){
+        ajaxManage.deal(req,res);
     })
 };

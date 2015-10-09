@@ -7,19 +7,19 @@
       <div class="container">
         <div style="height: 100px;margin-top: 30px;">
             <div class="col-md-1" style="height: 70px;border: 1px solid black"></div>
-            <div class="col-md-3" style="height: 70px;border: 1px solid black;margin-top: 10px"><span>参加活动的品牌</span></div>
-            <div class="col-md-3" style="height: 70px;border: 1px solid black;margin-top: 10px"><span>排名</span></div>
-            <div class="col-md-3" style="height: 70px;border: 1px solid black;margin-top: 10px"><span>统计</span></div>
+            <div class="col-md-3" id='goods' onclick="getData('goods')" style="height: 70px;border: 1px solid black;margin-top: 10px"><span>参加活动的品牌</span></div>
+            <div class="col-md-3" id='sort' onclick="getData('sort')" style="height: 70px;border: 1px solid black;margin-top: 10px"><span>排名</span></div>
+            <div class="col-md-3" id='total' onclick="getData('total')" style="height: 70px;border: 1px solid black;margin-top: 10px"><span>统计</span></div>
             <div class="col-md-2" style="height: 70px;border: 1px solid black"></div>
         </div>
           <div style="height:70px;margin-top: 30px">
-             
+
                   <div id="row_fn1_ac">
                       <a href="javascript:openLogin('注册活动');"><span>+添加活动</span></a>
                   </div>
 
           </div>
-          <div style="height:710px;margin-top: 30px;margin-bottom: 30px;"></div>
+          <div id="content" style="height:710px;margin-top: 30px;margin-bottom: 30px;"></div>
       </div>
     <div>
 

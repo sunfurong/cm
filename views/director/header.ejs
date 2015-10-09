@@ -30,6 +30,28 @@
         }
 
     </style>
+    <script type="text/javascript">
+        var goods = document.getElementById("goods");
+        var sort = document.getElementById("sort");
+        var total = document.getElementById("total");
+        var content = document.getElementById("content");
+        function getData(classname){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", "/ajax/" + classname, true);
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status == 200) {
+
+                        var data = eval("(" + xmlHttp.responseText + ")");
+                        content.innerHTML=data;
+                    }
+                }
+            }
+            //            //发送请求
+            //            xmlHttp.send(null);
+        }
+//
+    </script>
 
 </head>
 <body>
