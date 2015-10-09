@@ -37,7 +37,7 @@ Activity.prototype.save = function(callback) {
         activity.title+"','"+activity.tel+"','"+activity.manage_name+"','"+activity.manage_pawd+"','"+activity.show+"')";
     console.log(sql_string);
     mysqlcon.handleError();
-    mysqlcon.query(sql_string,function (err){
+    mysqlcon.query(sql_string,function (err,activity){
         if (err) {
             return callback(err);//错误，返回 err 信息
         }else{
