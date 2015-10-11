@@ -98,7 +98,7 @@ Activity.createGoodsTable=function(name,callback){
         "bsmname VARCHAR(255),"+
         "bsmpassword VARCHAR(255),"+
         "bsmphone BIGINT(20),"+
-        "task INT(20)"+
+        "tasknum BIGINT(20)"+
     ");"
     console.log(sql_string);
     mysqlcon.handleError();

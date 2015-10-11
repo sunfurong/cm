@@ -19,10 +19,47 @@
                   </div>
 
           </div>
-          <div id="content" style="height:710px;margin-top: 30px;margin-bottom: 30px;"></div>
+          <div id="content" style="height:710px;margin-top: 30px;margin-bottom: 30px;">
+
+
+          </div>
       </div>
     <div>
 
 </div>
 </>
+    <script type="text/javascript">
+        var goods = document.getElementById("goods");
+        var sort = document.getElementById("sort");
+        var total = document.getElementById("total");
+        var content = document.getElementById("content");
+        function getData(classname){
+//            var xmlHttp = new XMLHttpRequest();
+            alert("/ajax/" + classname)
+            var url="/ajax/" + classname;
+            var xhr=new XMLHttpRequest();
+            xhr.open("GET",url,true);
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+
+                        var data = eval("(" + xhr.responseText + ")");
+                        content.innerHTML=data.table;
+                    }
+                }
+            }
+//            xmlHttp.onreadystatechange = function () {
+//                if (xmlHttp.readyState == 4) {
+//                    if (xmlHttp.status == 200) {
+//
+//                        var data = eval("(" + xmlHttp.responseText + ")");
+//                        content.innerHTML=data;
+//                    }
+//                }
+//            }
+            //            //发送请求
+        xhr.send(null);
+        }
+        //
+    </script>
 <%- include header %>

@@ -1,12 +1,14 @@
-var goods=require('/dir_goods');
-var sort=require('/dir_sort');
-var total=require('/dir_total');
+var goods=require('./dir_goods');
+var sort=require('./dir_sort');
+var total=require('./dir_total');
 function deal(req,res){
-    var name= req.split('/')[2];
+    var name= req.url.split('/')[2];
    switch (name){
        case "goods":
-           var data=goods.getdata();
-           res.json(data);
+           //console.log(233);
+          goods.getdata(req,res);
+           //console.log(data);
+           //res.json(data);
             break;
        case "sort":
            var data=sort.getdata();
