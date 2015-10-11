@@ -32,7 +32,7 @@ Goods.prototype.save = function (tablename, callback) {
     }
 
     //打开数据库
-    var sql_string = "insert into " + tablename + "(name,ssmname,ssmpassword,ssmphone,goodsaddress,bsmname,bsmpassword,bsmphone,task) value("
+    var sql_string = "insert into " + tablename + "(name,ssmname,ssmpassword,ssmphone,goodsaddress,bsmname,bsmpassword,bsmphone,tasknum) value("
         + "'" + goods.name + "','" + goods.ssmname + "','" + goods.ssmpassword + "','" + goods.ssmphone + "','" + goods.goodsaddress + "','" + goods.bsmname + "','" +
         goods.bsmpassword + "','" + goods.bsmphone + "','" + goods.tasknum + "')";
     console.log(sql_string);
@@ -78,7 +78,6 @@ Goods.getAll = function (tablename, callback) {
         if (err) {
             return callback(err);//错误，返回 err 信息
         } else {
-            console.error(rows)
             if (rows.length != 0)
                 callback(null, rows); //成功！返回查询的用户信息
             else

@@ -1,4 +1,46 @@
 <%- include header %>
+
+<div id=win_login style="position: fixed;display:none; z-index:999;left:50%; top:50%; width:600px; height:400px; margin-left:-300px; margin-top:-200px; border:1px solid #888; background-color:#edf; text-align:center">
+    <div style="height: 40px;width: 100%;background-color: white;border: 1px solid black">
+        <p id="win_title"><p>
+    </div>
+    <div style="margin-top:20px;">
+        <form method="post" action="/goods_add">
+            <table valign="center" style="text-align:right;margin:auto;">
+                <tr><td>品牌名称:</td><td><input type="text" name="name"/><td></tr>
+                <tr><td>品牌商姓名:</td><td><input type="text" name="bsmname"/><td></tr>
+                <tr><td>品牌商电话:</td><td><input typ="tel" name="bsmphone"/><td></tr>
+                <tr><td>品牌商登录密码:</td><td><input type="text" name="bsmpassword"/><td></tr>
+                <tr><td>店铺地址:</td><td><input type="text" name="goodsaddress"/><td></tr>
+                <tr><td>业务员姓名:</td><td><input type="text" name="ssmname"/><td></tr>
+                <tr><td>业务员密码:</td><td><input type="text" name="ssmpassword"/><td></tr>
+                <tr><td>业务员联系电话:</td><td><input type="text" name="ssmphone"/><td></tr>
+                <tr><td>任务数量:</td><td><input type="text" name="tasknum"/> <td></tr>
+            </table>
+
+            <input type="submit" value="添加"/>
+
+        </form>
+    </div>
+
+</div>
+<div id=win_background style="position: fixed;display:none; z-index:998;left:0%; top:0%; width:100%; height:100%; border:1px solid #888;  background: rgba(255, 255, 255, 0.9);text-align:center">
+</div>
+
+
+<script>
+    function openLogin(div_name){
+        document.getElementById("win_title").innerText=div_name;
+        document.getElementById("win_login").style.display="";
+        document.getElementById("win_background").style.display="";
+        document.getElementById("win_background").addEventListener('click',closeLogin);
+    }
+    function closeLogin(){
+        document.getElementById("win_login").style.display="none";
+        document.getElementById("win_background").style.display="none";
+        document.getElementById("win_background").removeEventListener('click',closeLogin);
+    }
+</script>
 <div>
   
 
@@ -15,7 +57,7 @@
           <div style="height:70px;margin-top: 30px">
 
                   <div id="row_fn1_ac">
-                      <a href="javascript:openLogin('注册活动');"><span>+添加活动</span></a>
+                      <a href="javascript:openLogin('添加品牌');"><span>+添加品牌</span></a>
                   </div>
 
           </div>

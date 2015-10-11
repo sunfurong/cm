@@ -7,6 +7,7 @@ var home= require('../business/home');
 var activity=require('../business/activity');
 var director = require('../business/director');
 var ajaxManage = require('../business/ajaxManage');
+var dir_goods = require('../business/dir_goods');
 /* GET home page. */
 //var mysqlcon = require('../models/db/mysqlconnect');
 module.exports = function (app) {
@@ -107,5 +108,8 @@ module.exports = function (app) {
     })
     app.get('/ajax/*',function(req,res){
         ajaxManage.deal(req,res);
+    })
+    app.post('/goods_add',function(req,res){
+        dir_goods.add(req,res);
     })
 };
