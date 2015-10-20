@@ -45,7 +45,7 @@
   
 
   <div style="height: 100px;border: 1px solid black;"> </div>
-  <div style="height: 1000px;border:1px solid black;">
+  <div style="border:1px solid black;">
       <div class="container">
         <div style="height: 100px;margin-top: 30px;">
             <div class="col-md-1" style="height: 70px;border: 1px solid black"></div>
@@ -61,7 +61,7 @@
                   </div>
 
           </div>
-          <div id="content" style="height:710px;margin-top: 30px;margin-bottom: 30px;">
+          <div id="content" style="margin-top: 30px;margin-bottom: 30px;">
 
 
           </div>
@@ -77,7 +77,7 @@
         var content = document.getElementById("content");
         function getData(classname){
 //            var xmlHttp = new XMLHttpRequest();
-            alert("/ajax/" + classname)
+//            alert("/ajax/" + classname)
             var url="/ajax/" + classname;
             var xhr=new XMLHttpRequest();
             xhr.open("GET",url,true);
@@ -86,21 +86,44 @@
                     if (xhr.status == 200) {
 
                         var data = eval("(" + xhr.responseText + ")");
-                        content.innerHTML=data.table;
+                        if(classname=='goods'){
+                            showgoods(data.goods);
+                        }
                     }
                 }
             }
-//            xmlHttp.onreadystatechange = function () {
-//                if (xmlHttp.readyState == 4) {
-//                    if (xmlHttp.status == 200) {
-//
-//                        var data = eval("(" + xmlHttp.responseText + ")");
-//                        content.innerHTML=data;
-//                    }
-//                }
-//            }
-            //            //发送请求
         xhr.send(null);
+        }
+        function showgoods(goods){
+            table=" <table border='10' valign='center' style='margin:auto;width: 90%;font-size: 20px;'>"+
+                    "<thead>"+
+                    "<tr>"+
+                    "<th>序号</th>"+
+                    "<th>品牌</th>"+
+                    "<th>任务数</th>"+
+                    "<th>商户</th>"+
+                    "<th>商户密码</th>"+
+                    "<th>业务员</th>"+
+                    "<th>业务员密码</th>"+
+                    "<th>修改</th>"+
+                    "</tr>"+
+                    "</thead>";
+
+            for(var i=0;i<goods.length;i++){
+                table=table+" <tr>"+
+                        "<td>"+i+"</td>"+
+                        "<td>"+goods[i].name+"</td>"+
+                        "<td>"+goods[i].tasknum+"</td>"+
+                        "<td>"+goods[i].bsmname+"</td>"+
+                        "<td>"+goods[i].bsmpassword+"</td>"+
+                        "<td>"+goods[i].ssmname+"</td>"+
+                        "<td>"+goods[i].ssmpassword+"</td>"+
+                        "<td>"+"</td>"+
+                        "</tr>";
+            }
+
+            content.innerHTML=table+"</table>";
+
         }
         //
         getData('goods');
