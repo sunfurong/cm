@@ -24,26 +24,35 @@ function reg(req, res) {
         manage_pawd: activityManage_pawd,
         show: activityShow,
     });
-    activity.get(activityName, function (err, activity) {
+
+    activity.get(activityName, function (err, Activity) {
         if (err) {
             console.log("AAAAAAA+" + err);
             return;
         }
-        if (activity) {
+        if (Activity) {
             console.log("活动已存在");
             return res.redirect('/reg');
         }
         //console.log(newActivity);
-        newActivity.save(function (err, activity) {
+        newActivity.save(function (err, Activity) {
             if (err) {
                 console.log(err);
                 return;
             }
-            console.log(err);
+            //动态创建该活动对应的表
+            var table_name=Activity.name+"_goods"
+            activity.createGoodsTable(table_name,function(err,table){
+                if(err){
+                    return console.log(err);
+                }
+                res.redirect('/');
+            })
+            //console.log();
             //return res.redirect('/reg');
             //console.log(activity.activityName);
             //req.flash('success', '注册成功!');
-            res.redirect('/');
+
         });
     });
 }

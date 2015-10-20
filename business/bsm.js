@@ -1,24 +1,23 @@
 var activity = require("../models/activity/activity");
+var goods = require("../models/goods/goods");
 
-var director;
-var password;
+
 function reg(req,res){
-    console.log(req.session.activity);
-    activity.get(req.session.activity, function (err, activity) {
-        if (err) {
-            console.log("AAAAAAA+" + err);
-            return;
-        }
-        if (activity) {
-            console.log("活动已存在");
-            if(req.body.username==activity.manage_name && req.body.password==activity.manage_pawd){
-                return res.redirect('/bsm');
-            }else{
-                return;
+    req.session.activity=req.session.activity;
+    goods.getAll(req.session.activity+"_goods",function(err,g){
+        if(err){
+            console.error(err);
+            return
+        };
+        if(g){
+            for(var i=0;i< g.length;i++){
+                if(g[i].bsmname==req.body.username && g[i].bsmpassword==req.body.password){
+                    console.log("ssm signin success!");
+                    return res.redirect('/bsm');
+                }
             }
-
         }
-    });
+    })
 }
 module.exports = {
     reg: reg

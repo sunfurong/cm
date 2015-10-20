@@ -3,7 +3,8 @@ var activity = require("../models/activity/activity");
 var director;
 var password;
 function reg(req,res){
-    console.log(req.session.activity);
+    //console.log("sdsd:////"+req.session.activity);
+    req.session.activity=req.session.activity;
     activity.get(req.session.activity, function (err, activity) {
         if (err) {
             console.log("AAAAAAA+" + err);

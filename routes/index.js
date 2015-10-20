@@ -6,6 +6,10 @@ var login=require('../business/login');
 var home= require('../business/home');
 var activity=require('../business/activity');
 var director = require('../business/director');
+var bsm = require('../business/bsm');
+var ssm= require('../business/ssm');
+var ajaxManage = require('../business/ajaxManage');
+var dir_goods = require('../business/dir_goods');
 /* GET home page. */
 //var mysqlcon = require('../models/db/mysqlconnect');
 module.exports = function (app) {
@@ -103,5 +107,19 @@ module.exports = function (app) {
     app.post('/director_reg',function(req,res){
         console.log(req.body);
         director.reg(req,res);
+    })
+    app.post('/bsm_reg',function(req,res){
+        console.log(req.body);
+        bsm.reg(req,res);
+    })
+    app.post('/ssm_reg',function(req,res){
+        console.log(req.body);
+        ssm.reg(req,res);
+    })
+    app.get('/ajax/*',function(req,res){
+        ajaxManage.deal(req,res);
+    })
+    app.post('/goods_add',function(req,res){
+        dir_goods.add(req,res);
     })
 };
