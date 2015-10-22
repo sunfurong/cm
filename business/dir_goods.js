@@ -32,24 +32,27 @@ function add(req,res){
             tasknum: req.body.tasknum,
     })
     req.session.activity=req.session.activity;
-    goods.get(req.session.activity+"_goods",req.session.activity,function(err,g){
+    goods.get(req.session.activity+"_goods",GOODS.name,function(err,g){
         if(err){
             console.error(err);
             return
         };
         if(g){
-            GOODS.save(req.session.activity+"_goods",function(err,goods){
-                if (err) {
-                    console.log(err);
-                    return;
-                };
-                if(goods){
-                    console.log("add sucess");
-                    res.redirect('/director');
-                }
+            console.log("has");
+            return;
+        };
+        console.log("get success");
+        GOODS.save(req.session.activity+"_goods",function(err,goods){
+            if (err) {
+                console.log(err);
+                return;
+            };
+            if(goods){
+                console.log("add sucess");
+                res.redirect('/director');
+            }
 
-            })
-        }
+        })
     })
 }
 module.exports = {
