@@ -87,4 +87,26 @@ Goods.getAll = function (tablename, callback) {
     });
     mysqlcon.end();
 };
+Goods.createGoodTaskTable=function(name,callback){
+    var sql_string="CREATE TABLE "+name+"("+
+        "id INT(11) primary key auto_increment,"+
+        "cardnum VARCHAR(255),"+
+        "cusname VARCHAR(255),"+
+        "cusphone BIGINT(20),"+
+        "cusaddress VARCHAR(255),"+
+        "state INT(2)"+
+        ");"
+    console.log(sql_string);
+    mysqlcon.handleError();
+    mysqlcon.query(sql_string,function(err, rows){
+        if (err) {
+            return callback(err);//错误，返回 err 信息
+        }else{
+            if(rows.length!=0)
+                callback(null, rows); //成功！返回查询的用户信息
+            else
+                callback(null,null);
 
+        }
+    });
+}
