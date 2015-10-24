@@ -104,17 +104,17 @@ module.exports = function (app) {
         activity.reg(req,res);
 
     });
-    app.post('/director_reg',function(req,res){
+    app.post('/director_login',function(req,res){
         console.log(req.body);
-        director.reg(req,res);
+        director.login(req,res);
     })
-    app.post('/bsm_reg',function(req,res){
+    app.post('/bsm_login',function(req,res){
         console.log(req.body);
-        bsm.reg(req,res);
+        bsm.login(req,res);
     })
-    app.post('/ssm_reg',function(req,res){
+    app.post('/ssm_login',function(req,res){
         console.log(req.body);
-        ssm.reg(req,res);
+        ssm.login(req,res);
     })
     app.get('/ajax/*',function(req,res){
         ajaxManage.deal(req,res);

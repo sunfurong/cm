@@ -1,6 +1,7 @@
 var goods=require('./dir_goods');
 var sort=require('./dir_sort');
 var total=require('./dir_total');
+var cards = require('./cards');
 function deal(req,res){
     var name= req.url.split('/')[2];
    switch (name){
@@ -17,6 +18,10 @@ function deal(req,res){
        case "total":
            var data=total.getdata();
            res.json(data);
+           break;
+       case "cards":
+           console.log("ajax/cards");
+           cards.getdata(req,res);
            break;
        default :
            break;

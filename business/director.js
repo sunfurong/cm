@@ -2,7 +2,7 @@ var activity = require("../models/activity/activity");
 
 var director;
 var password;
-function reg(req,res){
+function login(req,res){
     //console.log("sdsd:////"+req.session.activity);
     req.session.activity=req.session.activity;
     activity.get(req.session.activity, function (err, activity) {
@@ -22,5 +22,5 @@ function reg(req,res){
     });
 }
 module.exports = {
-    reg: reg
+    login: login
 }
