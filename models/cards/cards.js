@@ -39,4 +39,21 @@ Cards.prototype.save = function (tablename, callback) {
     });
     mysqlcon.end();
 };
-//按照任务数，生成固定数量的卡片编号，存入表格
+//获取某个品牌的所有的任务
+Cards.getAll = function (tablename, callback) {
+    var sql_string = "select * from " + tablename;
+    console.log(sql_string);
+    mysqlcon.handleError();
+    mysqlcon.query(sql_string, function (err, rows) {
+        if (err) {
+            return callback(err);//错误，返回 err 信息
+        } else {
+            if (rows.length != 0)
+                callback(null, rows); //成功！返回查询的用户信息
+            else
+                callback(null, null);
+
+        }
+    });
+    mysqlcon.end();
+};

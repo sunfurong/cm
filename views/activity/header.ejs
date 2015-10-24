@@ -36,7 +36,7 @@
     function openLogin(div_name){
         document.getElementById("win_title").innerText=div_name;
         if(div_name=="负责人登录"){
-            document.getElementById("div_form").innerHTML="<form method='post' action='/director_reg'>"+
+            document.getElementById("div_form").innerHTML="<form method='post' action='/director_login'>"+
             "<table valign='center' style='text-align:right;margin:auto;'>"+
                    "<tr><td>负责人账户:</td><td><input type='text' name='username'/><td></tr>"+
             "<tr><td>负责人密码:</td><td><input type='text' name='password'/><td></tr>"+
@@ -44,7 +44,7 @@
             "<input type='submit' value='登录'/>"+
                   "  </form>";
         }else if(div_name=="商户登录"){
-            document.getElementById("div_form").innerHTML="<form method='post' action='/bsm_reg'>"+
+            document.getElementById("div_form").innerHTML="<form method='post' action='/bsm_login'>"+
                     "<table valign='center' style='text-align:right;margin:auto;'>"+
                     "<tr><td>商户账户:</td><td><input type='text' name='username'/><td></tr>"+
                     "<tr><td>商户密码:</td><td><input type='text' name='password'/><td></tr>"+
@@ -52,7 +52,7 @@
                     "<input type='submit' value='登录'/>"+
                     "  </form>";
         }else if(div_name=="业务员登录"){
-            document.getElementById("div_form").innerHTML="<form method='post' action='/ssm_reg'>"+
+            document.getElementById("div_form").innerHTML="<form method='post' action='/ssm_login'>"+
                     "<table valign='center' style='text-align:right;margin:auto;'>"+
                     "<tr><td>业务员账户:</td><td><input type='text' name='username'/><td></tr>"+
                     "<tr><td>业务员密码:</td><td><input type='text' name='password'/><td></tr>"+

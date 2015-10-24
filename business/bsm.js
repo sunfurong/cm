@@ -2,7 +2,7 @@ var activity = require("../models/activity/activity");
 var goods = require("../models/goods/goods");
 
 
-function reg(req,res){
+function login(req,res){
     req.session.activity=req.session.activity;
     goods.getAll(req.session.activity+"_goods",function(err,g){
         if(err){
@@ -20,5 +20,5 @@ function reg(req,res){
     })
 }
 module.exports = {
-    reg: reg
+    login: login
 }
